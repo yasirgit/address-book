@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Address Book List</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Street and number</th>
+            <th scope="col">Zip</th>
+            <th scope="col">Image</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for abook in list %}
+        <tr>
+            <th scope="row">{{abook.id}}</th>
+            <td>{{abook.firstName}}</td>
+            <td>{{abook.lastName}}</td>
+            <td>{{abook.streetNumber}}</td>
+            <td>{{abook.zip}}</td>
+            <td><img src="{{ asset('/uploads/images/' ~ abook.image) }}" alt="{{abook.firstName}}" height="42" width="42"></td>
+            <td>
+                <a href="/address-book/details/{{abook.id}}" class="btn btn-success">View</a>
+                <a href="/address-book/edit/{{abook.id}}" class="btn btn-default">Edit</a>
+                <a href="/address-book/delete/{{abook.id}}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

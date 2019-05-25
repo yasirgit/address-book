@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/address-book/create">Add New</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {% for flash_message in app.session.flashbag.get('notice') %}
+                <div class="alert alert-success">{{flash_message}}</div>
+            {% endfor %}
+
+            {% for flash_message in app.session.flashbag.get('error') %}
+                <div class="alert alert-success">{{flash_message}}</div>
+            {% endfor %}
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</main><!-- /.container -->
+
+{% block javascripts %}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() {
+        // you may need to change this code if you are not using Bootstrap Datepicker
+        $('.js-datepicker').datepicker({
+          format: 'yyyy-mm-dd'
+        });
+      });
+    </script>
+{% endblock %}
+
+</body>
+</html>
+

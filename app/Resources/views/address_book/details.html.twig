@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a class="btn btn-default" href="/">Back To List</a>
+    <hr>
+    {#<h2 class="page-header">{{detail.firstName}}</h2>#}
+    {#<div>#}
+        {#<img src="{{ asset('/uploads/images/' ~ detail.image) }}" alt="{{detail.firstName}}" width="200">#}
+    {#</div>#}
+    <div class="row">
+        <div class="col-sm-6">
+            <div>
+                <span>First Name: </span><span><b>{{detail.firstName}}</b></span>
+            </div>
+            <div>
+                <span>Last Name: </span><span><b>{{detail.lastName}}</b></span>
+            </div>
+            <div>
+                <span>Street and Number: </span><span><b>{{detail.streetNumber}}</b></span>
+            </div>
+            <div>
+                <span>Zip: </span><span><b>{{detail.zip}}</b></span>
+            </div>
+            <div>
+                <span>City: </span><span><b>{{detail.city}}</b></span>
+            </div>
+            <div>
+                <span>Country: </span><span><b>{{detail.country}}</b></span>
+            </div>
+            <div>
+                <span>Phone Number: </span><span><b>{{detail.phoneNumber}}</b></span>
+            </div>
+            <div>
+                <span>Email: </span><span><b>{{detail.email}}</b></span>
+            </div>
+            <div>
+                <span>Birthday: </span><span><b>{{detail.birthDay|date("d/m/Y")}}</b></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <img src="{{ asset('/uploads/images/' ~ detail.image) }}" alt="{{detail.firstName}}" width="500">
+        </div>
+    </div>
+{% endblock %}
