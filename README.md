@@ -1,4 +1,4 @@
-address_book
+Address Book CMS
 ============
 
-A Symfony project created on May 20, 2019, 11:26 am.
+An address book content management system based on Symfony 3.4 (PHP 7.0), Doctrine with SQLite, Twig Template Engine and Bootstrap.
